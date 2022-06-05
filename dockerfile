@@ -12,9 +12,11 @@ RUN apt-get install -y php8.1-gd php8.1-curl php8.1-mbstring php8.1-intl
 COPY src/ /var/www/html
 COPY 000-default.conf /etc/apache2/sites-enabled/
 COPY environment /etc/
+COPY secrets /var/www/html/settings.php
+RUN cat /var/www/html/settings.php
 RUN echo ". /etc/environment" >> /etc/apache2/envvars
 EXPOSE 80
 RUN rm /var/www/html/index.html
 #RUN php -m
 RUN chown -R www-data:www-data /var/www/
-CMD /usr/sbin/apache2ctl -D FOREGROUND
+#CMD /usr/sbin/apache2ctl -D FOREGROUND
