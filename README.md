@@ -1,4 +1,4 @@
-# Guestbook
+# Dockerized Guestbook for GKE - based on https://github.com/fredrikj31/PHP-Guestbook
 
 This guestbook is made for new beginners to PHP, and is focused to make people learn from it. Or maybe you just want to use it as a guestbook. You can do whatever you want with it. 
 
@@ -6,19 +6,26 @@ You can see a preview of the guestbook here:
 
 ![Preview of guestbook](https://raw.githubusercontent.com/fredrikj31/PHP-Guestbook/master/Preview1.PNG)
 
-## Installation
+It is dockerized for use in Google Kubernetes Engine.
 
-#### Download
+## Deployment
 
-You can download the [project](https://github.com/fredrikj31/PHP-Guestbook) by simply clicking the `Clone & Download` button and then click `Download ZIP`. 
+#### GCP configuration
 
-Then you drag-drop the files into your website server (XAMPP, WAMP) or you web hosting provider htdocs folder
+These are the steps I took to make the setup work:
+- Created a project
+- Created a normal GKE instance (no autopilot) in my project
+- Created a SQL Instance which was MySQL 8.0 in my project
+- Enabled Cloud Registry API in my project
+- In order to build my docker and insert secrets into my dockerfile, I've made a secrets file and placed it in the same folder as my dockerfile (which is actually the src/settings.php with credentials filled in.)
+- I built and pushed my image to GCR.
+- Created a Deployment in GKE.
+- Exposed my deployment.
 
-Then you access the website by the url.
 
-#### Install of SQL
+#### Initialization of SQL database
 
-You need to access your database, and then you click import and then upload the `guestbook.sql` file and then you click upload or something like that.
+You need to access your database (using DBeaver or whatever), and then you click import and then upload/execute the sql code in `guestbook.sql` file.
 
 ## Usage
 
@@ -41,11 +48,14 @@ The code looks like this:
 
 You can edit the website name to your own website name if you want to use it as a normal guestbook. 
 
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
+
 ## License
 [Fredrik Johansen](https://github.com/fredrikj31)
+[Parsa Asgari](https://github.com/parsa-asgari)
 
