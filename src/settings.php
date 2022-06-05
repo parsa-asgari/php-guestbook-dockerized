@@ -1,10 +1,10 @@
 <?php
     //Database settings
-    $dbhost = "10.20.96.3"; //Database host
+    $dbhost = $_SERVER['DBHOST']; //Database host
 //    $dbhost = "172.16.1.50"; //local database
-    $dbuser = "parsa"; //Database username
-    $dbpassword = "]l~BtDsf>}q8h4Zr"; //Database Password. Leave blank for no password!
-    $dbname = "php_guestbook"; //Database Name;
+    $dbuser = $_SERVER['DBUSER']; //Database username
+    $dbpassword = $_SERVER['DBPASS']; //Database Password. Leave blank for no password!
+    $dbname = $_SERVER['DBNAME']; //Database Name;
 
     //General Settings
     $sitename = "Guestbook"; //Website Name;
