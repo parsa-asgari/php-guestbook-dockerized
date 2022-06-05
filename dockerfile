@@ -11,7 +11,8 @@ RUN apt-get install -y php8.1-gd php8.1-curl php8.1-mbstring php8.1-intl
 #RUN ls
 COPY src/ /var/www/html
 COPY 000-default.conf /etc/apache2/sites-enabled/
-RUN Echo ". /etc/environment" >> /etc/apache2/envvars
+COPY environment /etc/
+RUN echo ". /etc/environment" >> /etc/apache2/envvars
 RUN echo "DBUSER=$DBUSER" >> /etc/environment
 RUN echo "DBPASS=$DBPASS" >> /etc/environment
 RUN echo "DBHOST=$DBHOST" >> /etc/environment
