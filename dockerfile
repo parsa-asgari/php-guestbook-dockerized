@@ -19,4 +19,4 @@ EXPOSE 80
 RUN rm /var/www/html/index.html
 #RUN php -m
 RUN chown -R www-data:www-data /var/www/
-#CMD /usr/sbin/apache2ctl -D FOREGROUND
+CMD /usr/sbin/apache2ctl -D FOREGROUND
