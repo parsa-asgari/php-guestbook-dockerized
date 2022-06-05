@@ -13,10 +13,6 @@ COPY src/ /var/www/html
 COPY 000-default.conf /etc/apache2/sites-enabled/
 COPY environment /etc/
 RUN echo ". /etc/environment" >> /etc/apache2/envvars
-RUN echo "DBUSER=$DBUSER" >> /etc/environment
-RUN echo "DBPASS=$DBPASS" >> /etc/environment
-RUN echo "DBHOST=$DBHOST" >> /etc/environment
-RUN echo "DBNAME=$DBNAME" >> /etc/environment
 EXPOSE 80
 RUN rm /var/www/html/index.html
 #RUN php -m
