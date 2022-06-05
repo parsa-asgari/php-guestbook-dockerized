@@ -17,7 +17,7 @@ These are the steps I took to make the setup work:
 - Created a normal GKE instance (no autopilot) in my project
 - Created a SQL Instance which was MySQL 8.0 in my project
 - Enabled Cloud Registry API in my project
-- In order to build my docker and insert secrets into my dockerfile, I've made a secrets file and placed it in the same folder as my dockerfile (which is actually the src/settings.php with credentials filled in.)
+- In order to build my docker image and insert secrets into my dockerfile, I've made a secrets file and placed it in the same folder as my dockerfile (which is actually the src/settings.php with credentials filled in.)
 - I built and pushed my image to GCR.
 - Created a Deployment in GKE.
 - Exposed my deployment.
